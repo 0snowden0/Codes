@@ -1,0 +1,2 @@
+This is a program that can amplify or condence a WAV audio file.
+This is attained using reading each of the two bytes of the file and mytiplying it by an amplification factor that we send
