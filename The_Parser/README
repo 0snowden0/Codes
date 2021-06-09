@@ -1,0 +1,1 @@
+This contains the code for which parses the response of a http for its data and adds it to a postgresql library employing sqlalchemy
