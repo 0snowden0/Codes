@@ -18,3 +18,14 @@
 	color: #504747;
 	}
 	
+.navb-myphoto{
+	background-color : #504747;
+	border-color : black;
+	}
+	
+h1, h2, h3, h4, h5, h6, .nav, .navbar {
+ font-family: 'Poiret One', cursive;
+			}
+body {
+ font-family: 'Lato', cursive;
+}
