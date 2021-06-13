@@ -1,6 +1,11 @@
-.bg-user-dark{
-	background-color: black;
+.bg-weather{
+	background-image: url(./weather2.jpg);
+	background-size : cover;
 	min-height : 300px;
+	background-size : auto;
+	color : white;
 	}
-.bg-user-green{
+	
+	
+
 	

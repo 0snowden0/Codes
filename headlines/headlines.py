@@ -32,7 +32,7 @@ def log():
 		if request.form['type']=='login':
 			query = User.query.filter_by(username= request.form['username']).first()
 			if query.password == request.form['password']:
-				return redirect(url_for('user', name=request.form['username']))
+				return redirect(url_for('feed' , name=request.form['username']))
 		elif request.form['type'] == 'signup' :
 			u = User(username= request.form['username'], password = request.form["password"], first=0)
 			db.session.add(u)
@@ -51,7 +51,22 @@ def user(name):
 	elif request.method == 'POST':
 		q.city = request.form['city']
 		db.session.commit()
-		return render_template("temp.html" , name=name)
+		return redirect(url_for('feed', name=name))
+		
+@app.route('/user/feed/<name>', methods=['GET' , 'POST'])
+def feed(name):
+	url="http://api.openweathermap.org/data/2.5/weather?q={}&appid=192509fe34fcc0bbf3ce60f483d0d33b"
+	qu = User.query.filter_by(username=name).first()
+	cit = qu.city
+	url=url.format(cit)
+	response = requests.get(url)
+	data = response.json()
+	
+	return render_template("loggeduser.html" , data=data) 
+	
+#name country
+#main temp feels_like temp_min temp max humidity
+#data.weather[0].icon , description
 		
 		
 			
