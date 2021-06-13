@@ -5,13 +5,27 @@ html , body {
 .bg-stars{
 	background-image : url(./leaf.jpg);
 	background-size : cover;
+	height : 90%;
 	}
 	
 .head{
-	margin-bottom : 300px;
+	margin-bottom : 100px;
 	
 	}
 
+.bu {
+		margin-top : 10px
+		
+		}
+.bg-end{
+	background-color: #506767;
+	height: 100px;
+	color : white;
+	}
+	
+	h1, h2, h3, h4, h5, h6, .nav, .navbar {
+ font-family: 'Poiret One', cursive;
+			}
 
 
 			

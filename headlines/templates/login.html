@@ -7,42 +7,35 @@
 	<title>Login To NewsFeast</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
 </head>
 </body>
 	<div class="container-fluid bg-stars">
 		<div class="container">
 			<div class="jumbotron head">
 				<h1>Welcome To NewsFeast</h1>
-				Just the feed you desire
+				Just the feed you desire !
 			</div>
-				<form class="justify-content-center" style="color:white" method="POST">
+				<div class="row align-items-center justify-content-center">
+				<form style="color:white" method="POST">
 				<div class="form-group">
 					<label for="name">Username</label>
 					<input action= " {{ url_for('log') }}" type="text" class="form-control" placeholder="username" name="username">
 					<label for="name">Password</label>
 					<input action= " {{ url_for('log') }}" type="password" class="form-control" placeholder="password" name="password">
-					<button type="submit" class="btn btn-success btn-block" name="type" value="login">Login !</button>
-					<button type="submit" class="btn btn-success btn-block" name="type" value="signup">Sign Up !</button>
+					<button type="submit" class="btn btn-success btn-block bu" name="type" value="login">Login !</button>
+					<button type="submit" class="btn btn-success btn-block bu" name="type" value="signup">Sign Up !</button>
 				</div>
 			</form>
+			</div>
 		</div>
-					
-			 
-			
-		
-	
-
-
-
-
-
-
-
-
-
-
-
-
+	</div>
+	<div class="container-fluid bg-end">
+		<div class="container h-100">
+			<div class="row h-100 align-items-end justify-content-center">
+				<h6>Copyright &#169; Prakash C.All rights reserved</h6> 
+			</div>
+		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
