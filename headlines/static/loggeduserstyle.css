@@ -5,6 +5,40 @@
 	background-size : auto;
 	color : white;
 	}
+.bg-page{
+	background-color : #504747;
+	}
+	
+.bg-light{
+	background-color : #B5B5B5;
+	}
+	
+body,html{
+	height :100%
+	}
+	
+	
+.mart{
+	margin-top : 10px;
+	}
+	
+.marb{
+	margin-bottom : 10px;
+	}
+	
+.bg-org{
+	background-color : #B5B5B5;
+	color : black;
+	}
+.bg-bla{
+	background-color : #B5B5B5;
+	color : black;
+	}
+	
+	
+	
+	
+	
 	
 	
 

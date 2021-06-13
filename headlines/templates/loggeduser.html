@@ -24,6 +24,79 @@
 			</div>
 		</div>
 	</div>
+	</div>
+	<div class="container-fluid bg-page h-100">
+		<div class="container">
+			<h2 style="color : white"> Your Feed ! </h2>
+				<ul class="nav nav-tabs nav-justified">
+					<li class="nav-item">
+					<a href="#hindufeed" class="nav-link active" data-toggle="tab"><b>Hindu Feed</b>
+					</a>
+					</li>
+					<li class="nav-item">
+					<a href="#manoramafeed" class="nav-link" data-toggle="tab"><b>Manorama Feed</b>
+					</a>
+					</li>
+				</ul>
+		</div>
+			<div class="tab-content bg-light">
+				<div role="tabpanel" class="tab-pane active" id="hindufeed">
+							{% for news in hindu %}
+								{% if loop.index%2 == 0 %}
+									<div class="container bg-bla">
+								{% else %}
+									<div class="container bg-org">
+								{% endif %}
+										<div class="row mart">
+											<a href="{{news['link']}}"><h2><b>{{news['title']}}</b></h2></a>
+										</div>
+										<div class="row">
+											Author : {{news['author']}}
+										</div>
+										<div class="row mart">
+										<h4><b>{{news['summary']}}</b></h4>
+										</div>
+										<div class="row marb">
+											{{news['published']}}
+										</div>
+									</div>
+									{% endfor %}
+										
+											
+								
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				<div role="tabpanel" class="tab-pane" id="manoramafeed">
+					<div class="container">
+						<div class="row">
+							<h3>Lorem Ipsums</h3>
+						</div>
+					</div>
+				</div>	
+			</div>		
+					
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

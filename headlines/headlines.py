@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,redirect,url_for
 import requests
 import urllib
 from flask_sqlalchemy import SQLAlchemy
+import feedparser
 
 app = Flask(__name__)
 
@@ -61,18 +62,13 @@ def feed(name):
 	url=url.format(cit)
 	response = requests.get(url)
 	data = response.json()
+	feedhindu=feedparser.parse(FEEDS['hindu'])
+	feedmanorama = feedparser.parse(FEEDS['manorama'])
 	
-	return render_template("loggeduser.html" , data=data) 
-	
-#name country
-#main temp feels_like temp_min temp max humidity
-#data.weather[0].icon , description
-		
-		
-			
+	return render_template("loggeduser.html" , data=data , hindu=feedhindu['entries'] , manorama=feedmanorama['entries'])
 #@app.route('/hindu')
 #def hind():
-	
+
 	
 #@app.route('/timesofindia')
 #def times():
