@@ -29,3 +29,10 @@ h1, h2, h3, h4, h5, h6, .nav, .navbar {
 body {
  font-family: 'Lato', cursive;
 }
+
+body, html {
+	height: 100%;
+	}
+.he{
+	height:100px;
+	}

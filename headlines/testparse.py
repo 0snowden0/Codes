@@ -11,8 +11,8 @@ import requests
 import feedparser
 
 FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
-	 'timesofindia': "https://timesofindia.indiatimes.com/rssfeeds/878156304.cms"}
+	 'manorama' :"https://www.onmanorama.com/news/kerala.feeds.onmrss.xml"}
 
-feed=feedparser.parse(FEEDS['hindu'])
+feed=feedparser.parse(FEEDS['manorama'])
 #first= feed['entries'][9]
 print(feed['entries'][0])

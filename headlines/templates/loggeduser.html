@@ -77,13 +77,40 @@
 						
 					</div>
 				<div role="tabpanel" class="tab-pane" id="manoramafeed">
-					<div class="container">
-						<div class="row">
-							<h3>Lorem Ipsums</h3>
+							{% for news in manorama %}
+								{% if loop.index%2 == 0 %}
+									<div class="container bg-bla">
+								{% else %}
+									<div class="container bg-org">
+								{% endif %}
+										<div class="row mart">
+											<a href="{{news['link']}}"><h2><b>{{news['title']}}</b></h2></a>
+										</div>
+										<div class="row mart">
+										<h4><b>{{news['summary']}}</b></h4>
+										</div>
+										<div class="row marb">
+											{{news['published']}}
+										</div>
+									</div>
+									{% endfor %}							
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 						</div>
 					</div>
-				</div>	
-			</div>		
 					
 				
 	
