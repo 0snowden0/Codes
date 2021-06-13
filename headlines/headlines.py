@@ -1,23 +1,47 @@
 from flask import Flask,render_template,request,redirect,url_for
 import requests
 import urllib
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
-	 'timesofindia': "https://timesofindia.indiatimes.com/rssfeeds/878156304.cms"}
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://Prakash:pass123@localhost/appwork'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db=SQLAlchemy(app)
+
+class User(db.Model):
+	__tablename__='users'
+	user_id = db.Column(db.Integer, primary_key = True)
+	username = db.Column(db.String(64),unique = True)
+	password = db.Column(db.String(64))
+	
+db.create_all()
+	
+	
+#FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
+#	 'timesofindia': "https://timesofindia.indiatimes.com/rssfeeds/878156304.cms"}
 	 
 @app.route('/',methods=['POST','GET'])
 def log():
 	if request.method=='POST' :
-		print(request.form['type'])
-		if request.form['type']=='login' :
-		     return redirect(url_for('user', name=request.form['username']))
+		print(request.form)
+		if request.form['type']=='login':
+			query = User.query.filter_by(username= request.form['username']).first()
+			if query.password == request.form['password']:
+				return redirect(url_for('user', name=request.form['username']))
+		elif request.form['type'] == 'signup' :
+			u = User(username= request.form['username'], password = request.form["password"])
+			db.session.add(u)
+			db.session.commit()
+			return redirect(url_for('user', name=request.form['username']))
 	return render_template("login.html")
-	
+
+
 @app.route('/user/<name>')
 def user(name):
-	return "hey man"
+	return "hey mam"
 	
 #@app.route('/hindu')
 #def hind():
