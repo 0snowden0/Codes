@@ -1,0 +1,18 @@
+.bg-1{
+	background-image : url(./city.jpg);
+	background-size : auto;
+	min-height: 300px;
+	}
+.bg-2{
+	background-color : #506767;
+	height : 300px;
+	color : white;
+	}
+.r {
+	margin-bottom : 20px;
+	color : white;
+	}
+	
+.bu {
+ 	margin-top: 20px;
+ 	}

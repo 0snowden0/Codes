@@ -16,12 +16,14 @@ class User(db.Model):
 	user_id = db.Column(db.Integer, primary_key = True)
 	username = db.Column(db.String(64),unique = True)
 	password = db.Column(db.String(64))
+	first = db.Column(db.Integer)
+	city = db.Column(db.String())
 	
 db.create_all()
 	
 	
-#FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
-#	 'timesofindia': "https://timesofindia.indiatimes.com/rssfeeds/878156304.cms"}
+FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
+	 'manorama' :"https://www.onmanorama.com/news/kerala.feeds.onmrss.xml"}
 	 
 @app.route('/',methods=['POST','GET'])
 def log():
@@ -32,17 +34,27 @@ def log():
 			if query.password == request.form['password']:
 				return redirect(url_for('user', name=request.form['username']))
 		elif request.form['type'] == 'signup' :
-			u = User(username= request.form['username'], password = request.form["password"])
+			u = User(username= request.form['username'], password = request.form["password"], first=0)
 			db.session.add(u)
 			db.session.commit()
 			return redirect(url_for('user', name=request.form['username']))
 	return render_template("login.html")
 
 
-@app.route('/user/<name>')
+@app.route('/user/<name>', methods=['POST', 'GET'])
 def user(name):
-	return "hey mam"
-	
+	q = User.query.filter_by(username=name).first()
+	if q.first==0:
+	 	q.first=1
+	 	db.session.commit()
+	 	return render_template("inputcity.html", name= name)
+	elif request.method == 'POST':
+		q.city = request.form['city']
+		db.session.commit()
+		return render_template("temp.html" , name=name)
+		
+		
+			
 #@app.route('/hindu')
 #def hind():
 	
@@ -58,7 +70,6 @@ def user(name):
 #	
 #def get_weather(query)
 	
- 	
-	
-if __name__=='__main__':
-	app.run(debug=True)
+if __name__ == '__main__' :
+	app.run()
+
