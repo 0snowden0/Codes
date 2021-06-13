@@ -1,0 +1,52 @@
+<! DOCTYPE html>
+<html lan="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" contents="width=device-width , initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Login To NewsFeast</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+</body>
+	<div class="container-fluid bg-stars">
+		<div class="container">
+			<div class="jumbotron head">
+				<h1>Welcome To NewsFeast</h1>
+				Just the feed you desire
+			</div>
+				<form class="justify-content-center" style="color:white" method="POST">
+				<div class="form-group">
+					<label for="name">Username</label>
+					<input action= " {{ url_for('log') }}" type="text" class="form-control" placeholder="username" name="username">
+					<label for="name">Password</label>
+					<input action= " {{ url_for('log') }}" type="password" class="form-control" placeholder="password" name="password">
+					<button type="submit" class="btn btn-success btn-block" name="type" value="login">Login !</button>
+					<button type="submit" class="btn btn-success btn-block" name="type" value="signup">Sign Up !</button>
+				</div>
+			</form>
+		</div>
+					
+			 
+			
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
