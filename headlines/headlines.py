@@ -62,6 +62,10 @@ def user(name):
 		
 @app.route('/user/feed/<name>', methods=['GET' , 'POST'])
 def feed(name):
+	if request.method=='POST':
+		q = User.query.filter_by(username=name).first()
+		q.city = request.form['newcity']
+		db.session.commit()
 	url="http://api.openweathermap.org/data/2.5/weather?q={}&appid=192509fe34fcc0bbf3ce60f483d0d33b"
 	qu = User.query.filter_by(username=name).first()
 	cit = qu.city
@@ -71,7 +75,7 @@ def feed(name):
 	feedhindu=feedparser.parse(FEEDS['hindu'])
 	feedmanorama = feedparser.parse(FEEDS['manorama'])
 	
-	return render_template("loggeduser.html" , data=data , hindu=feedhindu['entries'] , manorama=feedmanorama['entries'])
+	return render_template("loggeduser.html" , data=data , hindu=feedhindu['entries'] , manorama=feedmanorama['entries'] , name=name)
 #@app.route('/hindu')
 #def hind():
 
