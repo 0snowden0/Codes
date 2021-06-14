@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect,url_for,flash
 import requests
 import urllib
 from flask_sqlalchemy import SQLAlchemy
@@ -6,7 +6,7 @@ import feedparser
 
 app = Flask(__name__)
 
-
+app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://Prakash:pass123@localhost/appwork'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -29,16 +29,22 @@ FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss
 @app.route('/',methods=['POST','GET'])
 def log():
 	if request.method=='POST' :
-		print(request.form)
+		query = User.query.filter_by(username= request.form['username']).first()
 		if request.form['type']=='login':
-			query = User.query.filter_by(username= request.form['username']).first()
-			if query.password == request.form['password']:
-				return redirect(url_for('feed' , name=request.form['username']))
+			if query is None :
+				flash("Seems like you are a new user try signingup !")
+			elif query.password != request.form['password']:
+				flash("Looks like the username or password you entered is incorrect !")
+			elif query.password == request.form['password']:
+				return redirect(url_for('feed', name=request.form['username']))
 		elif request.form['type'] == 'signup' :
-			u = User(username= request.form['username'], password = request.form["password"], first=0)
-			db.session.add(u)
-			db.session.commit()
-			return redirect(url_for('user', name=request.form['username']))
+			if query is None:
+				u = User(username= request.form['username'], password = request.form["password"], first=0)
+				db.session.add(u)
+				db.session.commit()
+				return redirect(url_for('user', name=request.form['username']))
+			else:
+				flash("That username is taken , Try again!")
 	return render_template("login.html")
 
 

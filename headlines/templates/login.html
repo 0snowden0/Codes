@@ -30,6 +30,15 @@
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		{% for message in get_flashed_messages() %}
+			<div class="alert alern-warning">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				{{message}}
+			</div>
+		{% endfor %}
+		
+	</div>
 	<div class="container-fluid bg-end">
 		<div class="container h-100">
 			<div class="row h-100 align-items-end justify-content-center">
