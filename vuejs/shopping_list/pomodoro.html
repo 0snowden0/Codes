@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<title> Pomodoro Timer </title>
+</head>
+<body>
+	<div class="container" id="app">
+		<h2> THIS IS A POMODORO TIMER </h2>
+		<button @click="start()"><i class="glyphicon glyphicon-play"></i></button>
+		<div class="well">
+			<div class="pomodoro-timer">
+				{{minute}}:{{secons}}
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+	<script src="vuejspomodoro.js"></script>
+</body>
+</html>
+		
+		

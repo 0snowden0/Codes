@@ -1,18 +1,21 @@
 import urllib
 import requests
 
-#url="http://api.openweathermap.org/data/2.5/weather?q={}&appid=192509fe34fcc0bbf3ce60f483d0d33b"
-#url=url.format("thiruvananthapuram")
-#response = requests.get(url)
-#data = response.json()
-#print(data)
+url="http://api.openweathermap.org/data/2.5/weather?q={}&appid=192509fe34fcc0bbf3ce60f483d0d33b"
+url=url.format("tvm")
+response = requests.get(url)
+data = response.json()
+if 'message' in data:
+	print(data['message'])
+else:
+	print(data)
 
 
-import feedparser
+#import feedparser
 
-FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
-	 'manorama' :"https://www.onmanorama.com/news/kerala.feeds.onmrss.xml"}
+#FEEDS={'hindu':"https://www.thehindu.com/news/national/kerala/feeder/default.rss",
+	# 'manorama' :"https://www.onmanorama.com/news/kerala.feeds.onmrss.xml"}
 
-feed=feedparser.parse(FEEDS['manorama'])
+#feed=feedparser.parse(FEEDS['manorama'])
 #first= feed['entries'][9]
-print(feed['entries'][0])
+#print(feed['entries'][0])
