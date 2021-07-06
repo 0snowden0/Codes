@@ -1,0 +1,7 @@
+This is an APP:
+	It Uses Live RSS feed of HINDU and MANORAMA news channels 
+	It uses an API to give updates on live weather on any place on globe
+	It encorporates a simple login mechanism where you can provide your username and password and signin
+	
+	I have launched the application on heroku, attaching the link:
+		https://newsfeed-app-1.herokuapp.com/
