@@ -6,7 +6,8 @@ class Node:
 class linkedList():
 	def __init__(self):
 		self.head = None
-			
+		self.rear = None
+	#STACK LINKEDLIST BEGIN#		
 	def Push(self,data):
 		if self.head is None:
 			self.head = Node(data)
@@ -27,4 +28,22 @@ class linkedList():
 		
 	def Top(self):
 		return self.head
-		
+	#STACK LINKEDLIST END#
+	
+	#QUEUE LINKEDLIST BEGIN#
+	def enq(self,data):
+		current = self.rear
+		new_node = Node(data)
+		if current is None:
+		 	self.head = new_node
+		 	self.rear = new_node
+		 	return
+		 
+		current.next = new_node
+		self.rear = new_node
+		 
+	def dq(self):
+		current = self.head
+		self.head = current.next
+		current.next = None
+		return current.data
