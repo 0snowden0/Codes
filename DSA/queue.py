@@ -10,6 +10,9 @@ class Queue:
 		
 	def DeQueue(self):
 		return self.llist.dq()
+		
+	def isEmptyQueue(self):
+		return self.llist.checkempty()
 
 
 

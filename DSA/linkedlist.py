@@ -46,4 +46,12 @@ class linkedList():
 		current = self.head
 		self.head = current.next
 		current.next = None
+		if self.head == None:
+			self.rear = None
 		return current.data
+		
+	def checkempty(self):
+		if self.head == None:
+			return True
+		else:
+			return False
